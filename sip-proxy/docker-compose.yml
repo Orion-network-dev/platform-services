@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  sip-proxy:
+    build: .
+    volumes:
+      - ./kamailio:/etc/kamailio
+    ports:
+      - 5060:5060
+      - 5060:5060/udp
+    dns: 
+      - 172.80.0.11
+    networks:
+      dns:
+        ipv4_address: 172.80.0.10
+  unbound:
+    image: mvance/unbound:latest
+    volumes:
+      - ./unbound.conf:/opt/unbound/etc/unbound/unbound.conf
+    networks:
+      dns:
+        ipv4_address: 172.80.0.11
+networks:
+  dns:
+    ipam:
+      config:
+        - subnet: 172.80.0.8/29

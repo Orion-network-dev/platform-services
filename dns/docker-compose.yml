@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  bind:
+    image: internetsystemsconsortium/bind9:9.16
+    restart: unless-stopped
+    volumes:
+      - ./named.conf:/etc/bind/named.conf
+      - bind_cache:/var/cache/bind
+      - ./zones:/var/lib/bind
+    ports:
+      - '553:53/udp'
+    networks:
+      dns:
+        ipv4_address: 172.80.0.3
+
+  dnsdist:
+    image: ghcr.io/matthieucoder/orion-dns-reverse-proxy:master
+    restart: unless-stopped
+    entrypoint: /dns-reverse-proxy
+    command:
+      - -default
+      - 172.80.0.3:53
+    expose:
+      - '53/udp'
+      - '53/tcp'
+    ports:
+      - '53:53/tcp'
+      - '53:53/udp'
+    networks:
+      dns:
+        ipv4_address: 172.80.0.2
+
+volumes:
+  bind_cache:
+
+networks:
+  dns:
+    ipam:
+      config:
+        - subnet: 172.80.0.0/29

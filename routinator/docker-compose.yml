@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+   routinator:
+      image: nlnetlabs/routinator
+      ports:
+         - 3323:3323
+         - 443:443
+      command: --no-rir-tals --extra-tals-dir="/tals" server --rtr [::]:3323 --http [::]:443
+      volumes:
+         - ./routinator.conf:/etc/routinator.conf
+         - ./tals:/tals
