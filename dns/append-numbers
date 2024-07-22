@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in {1..255}
+do
+   echo "$i.member	IN	A	192.168.255.$i"
+done
