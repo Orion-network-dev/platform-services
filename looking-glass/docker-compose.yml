@@ -9,7 +9,7 @@ services:
       - ./config.php:/var/www/html/config.php
       - ./keys:/keys
     networks:
-      ooking-glass:
+      looking-glass:
         ipv4_address: 172.26.1.2
 networks:
   looking-glass:
