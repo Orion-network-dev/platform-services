@@ -8,8 +8,6 @@ services:
       - ./named.conf:/etc/bind/named.conf
       - bind_cache:/var/cache/bind
       - ./zones:/var/lib/bind
-    ports:
-      - '553:53/udp'
     networks:
       dns:
         ipv4_address: 172.80.0.3
