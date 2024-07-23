@@ -38,7 +38,7 @@ $config['misc']['allow_reserved_ip'] = true;
 $config['antispam']['enabled'] = true;
 $config['antispam']['database_file'] = 'looking-glass.db';
 
-$config['misc']['enable_http_x_forwarded_for'] = false;
+$config['misc']['enable_http_x_forwarded_for'] = true;
 $config['output']['show_command'] = true;
 $config['output']['scroll'] = true;
 // End of config.php
