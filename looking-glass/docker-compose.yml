@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  looking-glass:
+    image: gmazoyer/looking-glass:latest
+    ports:
+      - "127.0.0.1:5000:80"
+    volumes:
+      - ./config.php:/var/www/html/config.php
+      - ./keys:/keys
+    networks:
+      ooking-glass:
+        ipv4_address: 172.26.1.2
+networks:
+  looking-glass:
+    ipam:
+      config:
+        - subnet: 172.26.1.0/29
