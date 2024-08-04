@@ -7,20 +7,20 @@ services:
       - ./kamailio:/etc/kamailio
       - ./certs:/cert
     dns:
-      - 192.168.41.2
+      - 192.168.101.2
     networks:
       sip-proxy:
-        ipv4_address: 192.168.41.3
+        ipv4_address: 192.168.101.3
   unbound:
     image: mvance/unbound:latest
     volumes:
       - ./unbound.conf:/opt/unbound/etc/unbound/unbound.conf
     networks:
       sip-proxy:
-        ipv4_address: 192.168.41.2
+        ipv4_address: 192.168.101.2
 networks:
   sip-proxy:
     ipam:
       config:
-        - subnet: 192.168.41.0/24
+        - subnet: 192.168.101.0/24
 
