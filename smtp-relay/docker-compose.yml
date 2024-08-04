@@ -5,7 +5,12 @@ services:
       - ./transport:/etc/postfix/transport
       - ./main.cf:/etc/postfix/main.cf
       - ./relay:/etc/postfix/relay
-      - ./carts:/certs
+      - ./certs:/certs
+    ports:
+      - "25:25"
+      - "465:465"
+      - "587:587"
+      - "993:993"
     networks:
       smtp-relay:
         ipv4_address: 192.168.104.2
