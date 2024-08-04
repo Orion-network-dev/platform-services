@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./named.conf:/etc/bind/named.conf:rw
-      - bind_cache:/var/cache/bind:rw
+      - ./cache:/var/cache/bind:rw
       - ./zones:/var/lib/bind:rw
     networks:
       dns:
@@ -28,9 +28,6 @@ services:
     networks:
       dns:
         ipv4_address: 192.168.103.3
-
-volumes:
-  bind_cache:
 
 networks:
   dns:
