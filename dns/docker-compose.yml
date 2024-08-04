@@ -2,11 +2,11 @@ version: '3'
 
 services:
   bind:
-    image: internetsystemsconsortium/bind9:9.20
+    image: ubuntu/bind9
     restart: unless-stopped
     volumes:
-      - ./named.conf:/etc/bind/named.conf
-      - bind_cache:/var/cache/bind
+      - ./named.conf:/etc/bind/named.conf:rw
+      - bind_cache:/var/cache/bind:rw
       - ./zones:/var/lib/bind
     networks:
       dns:
