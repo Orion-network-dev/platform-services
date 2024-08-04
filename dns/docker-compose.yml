@@ -7,7 +7,7 @@ services:
     volumes:
       - ./named.conf:/etc/bind/named.conf:rw
       - bind_cache:/var/cache/bind:rw
-      - ./zones:/var/lib/bind
+      - ./zones:/var/lib/bind:rw
     networks:
       dns:
         ipv4_address: 192.168.103.2
