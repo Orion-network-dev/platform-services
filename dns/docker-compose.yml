@@ -13,7 +13,7 @@ services:
         ipv4_address: 192.168.103.2
 
   dnsdist:
-    image: ghcr.io/matthieucoder/orion-dns-reverse-proxy:master
+    image: ghcr.io/orion-network-dev/dns-reverse-proxy:master
     restart: unless-stopped
     entrypoint: /dns-reverse-proxy
     command:
