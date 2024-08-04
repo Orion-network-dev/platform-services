@@ -4,12 +4,12 @@ append_dot_mydomain = no
 compatibility_level = 3.6
 
 # TLS parameters
-#smtpd_tls_cert_file=/etc/postfix/certificates/mail.example.com.crt
-#smtpd_tls_key_file=/etc/postfix/certificates/mail.example.com.key
-#smtpd_tls_security_level=may
-#smtp_tls_CApath=/etc/ssl/certs
-#smtp_tls_security_level=may
-#smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+smtpd_tls_cert_file=/certs/fullchain.pem
+smtpd_tls_key_file=/certs/privkey.pem
+smtpd_tls_security_level=may
+smtp_tls_CApath=/etc/ssl/certs
+smtp_tls_security_level=may
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 
 alias_database = hash:/etc/aliases
 alias_maps = hash:/etc/aliases
