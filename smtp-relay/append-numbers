@@ -1,0 +1,12 @@
+#!/bin/bash
+for i in {1..255}
+do
+   echo "$i.orionet.re	relay:[mail.$i.orionet.re]:25"
+done > transport
+
+echo "* relay:[mail.1.orionet.re]:25" >> transport
+
+for i in {1..255}
+do
+    echo "$i.orionet.re OK"
+done > relay

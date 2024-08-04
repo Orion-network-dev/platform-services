@@ -1,0 +1,19 @@
+services:
+  smtp:
+    build: .
+    volumes:
+      - ./transport:/etc/postfix/transport
+      - ./main.cf:/etc/postfix/main.cf
+      - ./relay:/etc/postfix/relay
+    networks:
+      smtp-relay:
+        ipv4_address: 192.168.34.2
+
+volumes:
+  data-smtp-relay-auth:
+
+networks:
+  smtp-relay:
+    ipam:
+      config:
+        - subnet: 192.168.34.0/24

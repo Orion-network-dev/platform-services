@@ -1,0 +1,9 @@
+#!/bin/bash
+
+chown root:postfix -R /etc/postfix
+chmod 740 -R /etc/postfix
+
+postmap /etc/postfix/transport
+postmap /etc/postfix/relay
+
+/usr/sbin/postfix start-fg

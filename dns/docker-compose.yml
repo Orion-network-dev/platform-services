@@ -10,7 +10,7 @@ services:
       - ./zones:/var/lib/bind
     networks:
       dns:
-        ipv4_address: 172.80.0.3
+        ipv4_address: 192.168.33.2
 
   dnsdist:
     image: ghcr.io/matthieucoder/orion-dns-reverse-proxy:master
@@ -18,7 +18,7 @@ services:
     entrypoint: /dns-reverse-proxy
     command:
       - -default
-      - 172.80.0.3:53
+      - 192.168.33.2:53
     expose:
       - '53/udp'
       - '53/tcp'
@@ -27,7 +27,7 @@ services:
       - '53:53/udp'
     networks:
       dns:
-        ipv4_address: 172.80.0.2
+        ipv4_address: 192.168.33.3
 
 volumes:
   bind_cache:
@@ -36,4 +36,4 @@ networks:
   dns:
     ipam:
       config:
-        - subnet: 172.80.0.0/29
+        - subnet: 192.168.33.0/24
