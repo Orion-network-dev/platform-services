@@ -2,7 +2,7 @@ version: '3'
 
 services:
   bind:
-    image: internetsystemsconsortium/bind9:9.16
+    image: internetsystemsconsortium/bind9:9.20
     restart: unless-stopped
     volumes:
       - ./named.conf:/etc/bind/named.conf
