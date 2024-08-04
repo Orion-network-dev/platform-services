@@ -3,6 +3,8 @@
 chown root:postfix -R /etc/postfix
 chmod 740 -R /etc/postfix
 
+cp /etc/resolv.conf /var/spool/postfix/etc/resolv.conf
+
 postmap /etc/postfix/transport
 postmap /etc/postfix/relay
 
