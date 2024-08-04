@@ -24,6 +24,7 @@ mail     IN     AAAA    2a02:c206:2201:3371::1
 
 pki	IN	CNAME	ns0
 reg	IN	CNAME	ns0
+lg  IN  CNAME   ns0
 
 reg4	IN	A	194.163.144.50
 
