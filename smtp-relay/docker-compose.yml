@@ -7,7 +7,7 @@ services:
       - ./relay:/etc/postfix/relay
     networks:
       smtp-relay:
-        ipv4_address: 192.168.34.2
+        ipv4_address: 192.168.44.2
 
 volumes:
   data-smtp-relay-auth:
@@ -16,4 +16,4 @@ networks:
   smtp-relay:
     ipam:
       config:
-        - subnet: 192.168.34.0/24
+        - subnet: 192.168.44.0/24

@@ -10,9 +10,9 @@ services:
       - ./keys:/keys
     networks:
       looking-glass:
-        ipv4_address: 192.168.32.2
+        ipv4_address: 192.168.42.2
 networks:
   looking-glass:
     ipam:
       config:
-        - subnet: 192.168.32.0/24
+        - subnet: 192.168.42.0/24
