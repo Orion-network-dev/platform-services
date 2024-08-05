@@ -14,6 +14,7 @@ services:
     networks:
       smtp-relay:
         ipv4_address: 192.168.104.2
+        ipv6_address: 2a02:c206:2201:3371:104::1
 
 volumes:
   data-smtp-relay-auth:
@@ -24,4 +25,5 @@ networks:
     ipam:
       config:
         - subnet: 192.168.104.0/24
-        - subnet: 2001:db8:104::/64
+        - subnet: 2a02:c206:2201:3371:104::/120
+
