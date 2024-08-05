@@ -20,6 +20,8 @@ volumes:
 
 networks:
   smtp-relay:
+    enable_ipv6: true
     ipam:
       config:
         - subnet: 192.168.104.0/24
+         - subnet: 2001:db8:104::/64
