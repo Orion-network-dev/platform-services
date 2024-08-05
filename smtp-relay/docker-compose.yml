@@ -14,7 +14,7 @@ services:
     networks:
       smtp-relay:
         ipv4_address: 192.168.104.2
-        ipv6_address: 2a02:c206:2201:3371:104::1
+        ipv6_address: 2a02:c206:2201:3371:104::2
 
 volumes:
   data-smtp-relay-auth:
