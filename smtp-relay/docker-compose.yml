@@ -1,6 +1,7 @@
 services:
   smtp:
     build: .
+    restart: always
     volumes:
       - ./transport:/etc/postfix/transport
       - ./main.cf:/etc/postfix/main.cf
