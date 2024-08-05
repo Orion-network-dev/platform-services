@@ -20,7 +20,7 @@ ns1      IN     A       194.163.144.50
 ns1      IN     AAAA    2a02:c206:2201:3371::1
 
 mail     IN     A       194.163.144.50
-mail     IN     AAAA    2a02:c206:2201:3371::1 
+mail     IN     AAAA    2a02:c206:2201:3371:104::2
 
 pki	IN	CNAME	ns0
 reg	IN	CNAME	ns0
