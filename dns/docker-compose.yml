@@ -16,13 +16,9 @@ services:
     image: ghcr.io/orion-network-dev/dns-reverse-proxy:master
     restart: unless-stopped
     entrypoint: /dns-reverse-proxy
-    volumes:
-      - ./zones:/certs
     command:
       - -default
       - 192.168.103.2:53
-      - -certs
-      - /certs
     expose:
       - '53/udp'
       - '53/tcp'
