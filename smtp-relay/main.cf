@@ -1,4 +1,4 @@
-smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU+orion-relay)
+smtpd_banner = $myhostname ESMTP $mail_name (orion-relay)
 biff = no
 append_dot_mydomain = no
 compatibility_level = 3.6
@@ -6,13 +6,13 @@ compatibility_level = 3.6
 # TLS parameters
 smtpd_tls_cert_file=/certs/fullchain.pem
 smtpd_tls_key_file=/certs/privkey.pem
-smtpd_tls_security_level=may
+smtpd_tls_security_level=require
 smtp_tls_CApath=/etc/ssl/certs
-smtp_tls_security_level=may
+smtp_tls_security_level=require
 smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 smtpd_tls_auth_only = yes
-smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1, !TLSv1.2
-smtpd_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1, !TLSv1.2
+smtpd_tls_mandatory_protocols = TLSv1.3, TLSv1.2 # Obligatoire TLS 1.3 ou 1.2 si le client ne supporte pas 1.3
+smtpd_tls_protocols = TLSv1.3, TLSv1.2         # Protocoles TLS autorisés
 
 tls_preempt_cipherlist = no
 
@@ -29,7 +29,7 @@ recipient_delimiter = +
 myhostname = mail.orionet.re
 myorigin = orionet.re
 mydestination = orionet.re
-mynetworks = 127.0.0.0/8 10.30.0.0/16
+mynetworks = 127.0.0.0/8
 smtpd_relay_restrictions = 
     permit_mynetworks, 
     permit_sasl_authenticated,
